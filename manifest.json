@@ -1,0 +1,13 @@
+{
+  "name": "Authenticator",
+  "description": "Generate TOTP for 2FA",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "home.html",
+    "default_icon": "icon.jpg"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
