@@ -17,7 +17,10 @@ Use this extension to generate your 2FA OTPs.
 - The extension uses the chrome storage API to be able to store the secret safely and locally on the user's computer.
 
 ## Screenshots
-TBA
+- Extension before adding secret: <br> <img src="screenshots/Initial.png">
+- Set secret page: <br> <img src="screenshots/setSecret.png">
+- After setting secret: <br> <img src="screenshots/setSecretSuccess.png">
+- Extension after adding secret: <br> <img src="screenshots/final.png">
 
 ## Credits
 1. totp-generator https://www.npmjs.com/package/totp-generator
