@@ -17,8 +17,12 @@ chrome.storage.sync.get(['secret'], function(result) {
 
 // This function sets the secret entered to the storage.
 function setSecretToStorage() {
-    // Get the secret that was entered.
-    let inpSecret = document.getElementById('newSecret').value
+    // Get the secret that was entered and remove spaces.
+    let inpSecret = document.getElementById('newSecret').value?.replace(" ", "")
+    if (!inpSecret) {
+        // If the secret isn't entered, do not do anything.
+        return;
+    }
     // Set the secret to storage.
     chrome.storage.sync.set({secret: inpSecret}, function() {
         // After the secret is stored, set the status to "Secret is loaded".
