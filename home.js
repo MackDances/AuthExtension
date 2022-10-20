@@ -1,31 +1,18 @@
-document.getElementById('submitBtn').addEventListener("click", loadSecret);
+putOutput()
 document.getElementById('generateBtn').addEventListener("click", putOutput);
-
-function loadSecret() {
-    let inp = document.getElementById('secret').value;
-    chrome.storage.sync.set({secret: inp}, function() {
-        console.log("SUS")
-    });
-}
+document.getElementById('copyToClipboard').addEventListener("click", copy);
 
 function putOutput() {
     chrome.storage.sync.get(['secret'], function(result) {
         console.log(result.secret);
-        let token = result.secret;
-        let out = getToken(token, {period: 30});
+        let secret = result.secret;
+        let out = getToken(secret, {period: 30});
         document.getElementById('output').innerHTML = out;
     });
 }
 
-function getSecret() {
-    chrome.storage.sync.get(['secret'], function(result) {
-        console.log(result.secret);
-        return String(result.secret)
-    });
-}
-
-function setSecret(newSecret) {
-    chrome.storage.sync.set({secret: newSecret}, function() {
-        console.log("SUS")
-    });
+function copy() {
+    let otp = document.getElementById('output').innerHTML;
+    navigator.clipboard.writeText(otp);
+    document.getElementById('copyToClipboard').innerHTML = "copied!";
 }
