@@ -18,8 +18,9 @@ chrome.storage.sync.get(['secret'], function(result) {
 // This function sets the secret entered to the storage.
 function setSecretToStorage() {
     // Get the secret that was entered and remove spaces.
-    let inpSecret = document.getElementById('newSecret').value?.replace(" ", "")
-    if (!inpSecret) {
+    let inpSecret = document.getElementById('newSecret').value.replaceAll(" ", "")
+    console.log(inpSecret);
+    if (inpSecret == "") {
         // If the secret isn't entered, do not do anything.
         return;
     }
